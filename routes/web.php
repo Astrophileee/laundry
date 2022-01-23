@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaketController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\OutletController;
+use App\Http\Controllers\DashboardController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -19,4 +22,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::prefix('/admin')->group(function(){
     Route::get('/', [DashboardController::class, 'index']);
+    Route::resource('/outlet', OutletController::class);
+    Route::resource('/paket', PaketController::class);
+    Route::resource('/member', MemberController::class);
 });
