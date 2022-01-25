@@ -281,4 +281,5 @@
     });
   </script>
 @endpush
+@include('admin.layout.copyright')
 @include('admin.layout.footer')
