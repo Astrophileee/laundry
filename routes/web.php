@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OutletController;
@@ -34,5 +35,8 @@ Route::middleware('auth')->group(function () {
         Route::resource('/outlet', OutletController::class);
         Route::resource('/paket', PaketController::class);
         Route::resource('/member', MemberController::class);
+            Route::middleware('admin')->group(function () {
+                Route::resource('/user', UserController::class);
+            });
     });
 });

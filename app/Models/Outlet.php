@@ -16,6 +16,10 @@ class Outlet extends Model
         return $this->hasMany(Paket::class,'id_outlet');
     }
 
+    public function User() {
+        return $this->hasMany(User::class,'id_outlet');
+    }
+
     public function canDelete(){
         return !$this->Paket()->exists();
     }
